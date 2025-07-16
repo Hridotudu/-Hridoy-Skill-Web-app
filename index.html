@@ -463,7 +463,8 @@
         <p>Daily Ads: <strong id="dailyAdsWatchedProfile">0</strong></p>
         <p>Total Tasks: <strong id="tasksCompletedProfile">0</strong></p>
         <p>Total Withdraw: <strong id="withdrawTotal">$0.00</strong></p>
-        <p>Total Referrals: <strong id="totalReferralsProfile">0</strong></p> 
+        <p>Total Referrals: <strong id="totalReferralsProfile">0</strong></p>
+        <button class="btn" onclick="showTab('roles')" style="margin-top: 10px;">View Roles & Rules</button> 
         <p style="margin-top:10px;color:#888;">❤️Developer:Hridoy Skill❤️</p>
         <img src="https://res.cloudinary.com/dtjjgiitl/image/upload/q_auto:good,f_auto,fl_progressive/v1752401954/w0d4yapthokp30zvta1j.jpg" alt="Meditation Image" style="max-width:100%; height:auto; display:block; margin: 15px auto;">
       </div>
@@ -476,7 +477,7 @@
   <button onclick="showTab('withdraw')">Withdraw</button>
   <button onclick="showTab('contact')">Contact</button>
   <button onclick="showTab('profile')">Profile</button>
-  <button onclick="showTab('roles')">Roles</button>
+  
 </nav>
 
 <div id="referralModal" class="modal">
@@ -864,7 +865,10 @@
       // Show the selected section
       document.getElementById(tabId).classList.add('active');
       // Activate the corresponding nav button
-      document.querySelector(`nav button[onclick*="showTab('${tabId}')"]`).classList.add('active');
+      const navButton = document.querySelector(`nav button[onclick*="showTab('${tabId}')"]`);
+      if (navButton) {
+        navButton.classList.add('active');
+      }
     }
     updateProfileStats();
   }
